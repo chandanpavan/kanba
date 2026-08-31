@@ -1,31 +1,7 @@
 import TaskCard from "./TaskCard";
 
-const Column = () => {
+const Column = ({ tasks }) => {
   const tabs = ["Todo", "In-Progress", "Completed"];
-
-  const tasks = [
-    {
-      id: 1,
-      title: "Frontend",
-      priority: "High",
-      assignee: "Chandan",
-      status: "Todo",
-    },
-    {
-      id: 2,
-      title: "Backend",
-      priority: "Medium",
-      assignee: "Rahul",
-      status: "In-Progress",
-    },
-    {
-      id: 3,
-      title: "Redux",
-      priority: "Low",
-      assignee: "Alice",
-      status: "Completed",
-    },
-  ];
 
   return (
     <div className="flex flex-row justify-around  items-start gap-6 mt-4">

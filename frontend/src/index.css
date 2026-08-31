@@ -4,3 +4,102 @@ body {
   background-color: rgb(13, 13, 13);
   color: aliceblue;
 }
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 {
+  z-index: 50;
+  padding: 24px;
+  backdrop-filter: blur(3px);
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50
+  > .bg-white.text-black.p-4.rounded-xl.text-2xl {
+  width: min(100%, 460px);
+  padding: 24px;
+  border-radius: 12px;
+  background: #bbd1e6;
+  color: #111827;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 h1 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 h2 {
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 input,
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 10px 12px;
+  font-size: 16px;
+  color: #111827;
+  outline: none;
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 input:focus,
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50
+  form
+  > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50
+  button:first-child {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.fixed.inset-0.flex.justify-center.items-center.bg-black\/50 button:last-child {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+@media (max-width: 520px) {
+  .fixed.inset-0.flex.justify-center.items-center.bg-black\/50 {
+    padding: 16px;
+  }
+
+  .fixed.inset-0.flex.justify-center.items-center.bg-black\/50
+    > .bg-white.text-black.p-4.rounded-xl.text-2xl {
+    padding: 20px;
+  }
+
+  .fixed.inset-0.flex.justify-center.items-center.bg-black\/50
+    form
+    > div:last-child {
+    flex-direction: column-reverse;
+  }
+}

@@ -23,7 +23,7 @@ const Searchbar = () => {
           value={text}
           required
           placeholder="Start typing.."
-          className="rounded p-3 text-xl outline-white"
+          className="rounded p-3 text-xl border-3"
           type="text"
         />
         <button className="rounded-xl p-3 text-2xl cursor-pointer active:scale-95">
