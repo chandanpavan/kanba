@@ -14,6 +14,7 @@ const AddTaskModal = (props) => {
   };
 
   const taskHandler = () => {
+    // adding new tasks
     const newTask = {
       id: Date.now(),
       title,
