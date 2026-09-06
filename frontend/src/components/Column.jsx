@@ -1,6 +1,13 @@
 import TaskCard from "./TaskCard";
 
-const Column = ({ tasks }) => {
+const Column = ({
+  tasks,
+  setTasks,
+  isModalOpen,
+  setIsModalOpen,
+  isEditing,
+  setIsEditing,
+}) => {
   const tabs = ["Todo", "In-Progress", "Completed"];
 
   return (
@@ -22,9 +29,18 @@ const Column = ({ tasks }) => {
                     // rendering each task to its seperate column
                     <TaskCard
                       key={task.id}
+                      id={task.id}
                       title={task.title}
                       priority={task.priority}
                       assignee={task.assignee}
+                      description={task.description}
+                      status={tasks.status}
+                      tasks={tasks}
+                      setTasks={setTasks}
+                      isModalOpen={isModalOpen}
+                      setIsModalOpen={setIsModalOpen}
+                      isEditing={isEditing}
+                      setIsEditing={setIsEditing}
                     />
                   );
                 })}

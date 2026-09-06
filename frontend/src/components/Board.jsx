@@ -6,6 +6,7 @@ import { Plus } from "lucide-react";
 
 const Board = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(null);
   const [isRed, setIsRed] = useState(false);
   const [tasks, setTasks] = useState([]);
 
@@ -23,12 +24,21 @@ const Board = () => {
           <Plus /> Add Task
         </button>
       </div>
-      <Column tasks={tasks} />
+      <Column
+        tasks={tasks}
+        setTasks={setTasks}
+        isModalOpen={setIsModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
+      />
       {isModalOpen && (
         <AddTaskModal
           tasks={tasks}
           setTasks={setTasks}
           setIsModalOpen={setIsModalOpen}
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
         />
       )}
     </div>

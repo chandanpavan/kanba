@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const AddTaskModal = (props) => {
   const [title, setTitle] = useState("");
@@ -26,6 +26,16 @@ const AddTaskModal = (props) => {
 
     props.setTasks([...props.tasks, newTask]);
   };
+
+  useEffect(() => {
+    if (props.isEditing) {
+      setTitle(props.isEditing.title);
+      setDescription(props.isEditing.description);
+      setAssignee(props.isEditing.assignee);
+      setStatus(props.isEditing.status);
+      setPriority(props.isEditing.priority);
+    }
+  }, [props.isEditing]);
 
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-black/50">
@@ -89,7 +99,7 @@ const AddTaskModal = (props) => {
               value={status}
             >
               <option value="Todo">Todo</option>
-              <option value="Ongoing">Ongoing</option>
+              <option value="In-Progress">In-progress</option>
               <option value="Completed">Completed</option>
             </select>
           </div>
