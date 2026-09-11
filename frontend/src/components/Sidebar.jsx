@@ -1,11 +1,7 @@
-import { FolderKanban, Settings, UsersRound } from "lucide-react";
+import { UsersRound } from "lucide-react";
 
 const Sidebar = () => {
-  const items = [
-    { label: "Projects", icon: FolderKanban, active: true },
-    { label: "Teams", icon: UsersRound },
-    { label: "Settings", icon: Settings },
-  ];
+  const items = [{ label: "Teams", icon: UsersRound }];
 
   return (
     <aside className="sticky top-[73px] hidden h-[calc(100vh-73px)] w-64 shrink-0 border-r border-slate-200/80 bg-white/70 px-4 py-6 backdrop-blur-xl lg:flex lg:flex-col">
