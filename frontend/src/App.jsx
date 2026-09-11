@@ -2,12 +2,14 @@ import { useState } from "react";
 import Board from "./components/Board";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [search, setSearch] = useState("");
 
   return (
     <div className="min-h-screen bg-[#f4f7fb] text-slate-900">
+      <Toaster />
       <Navbar search={search} setSearch={setSearch} />
       <div className="flex min-h-[calc(100vh-72px)] items-start">
         <Sidebar />

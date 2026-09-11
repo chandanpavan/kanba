@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
+import toast from "react-hot-toast";
 
 const AddTaskModal = (props) => {
   const [title, setTitle] = useState(props.isEditing?.title || "");
@@ -34,6 +35,7 @@ const AddTaskModal = (props) => {
       });
       props.setTasks(updatedTasks);
       props.setIsEditing(null);
+      toast.success("Task updated succesfully!");
     }
     // adding new tasks
     else {
@@ -47,6 +49,7 @@ const AddTaskModal = (props) => {
       };
 
       props.setTasks([...props.tasks, newTask]);
+      toast.success("Task added!");
     }
   };
 
@@ -102,32 +105,32 @@ const AddTaskModal = (props) => {
             />
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <label>Priority</label>
-            <select
-              onChange={(e) => {
-                setPriority(e.target.value);
-              }}
-              value={priority}
-            >
-              <option value="High">High</option>
-              <option value="Medium">Medium</option>
-              <option value="Low">Low</option>
-            </select>
-          </div>
-          <div>
-            <label>Status</label>
-            <select
-              onChange={(e) => {
-                setStatus(e.target.value);
-              }}
-              value={status}
-            >
-              <option value="Todo">Todo</option>
-              <option value="In-Progress">In-progress</option>
-              <option value="Completed">Completed</option>
-            </select>
-          </div>
+            <div>
+              <label>Priority</label>
+              <select
+                onChange={(e) => {
+                  setPriority(e.target.value);
+                }}
+                value={priority}
+              >
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+            <div>
+              <label>Status</label>
+              <select
+                onChange={(e) => {
+                  setStatus(e.target.value);
+                }}
+                value={status}
+              >
+                <option value="Todo">Todo</option>
+                <option value="In-Progress">In-progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
           </div>
           <div>
             <label>Assignee</label>

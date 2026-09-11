@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Column from "./Column";
 import AddTaskModal from "./AddTaskModal";
 import { Plus } from "lucide-react";
+import { DndContext } from "@dnd-kit/core";
 // we need a boolean if we need to change css onchange/onclick or on some event
 
 const Board = ({ search, setSearch }) => {
@@ -28,6 +29,24 @@ const Board = ({ search, setSearch }) => {
   const searchTasks = tasks.filter((task) =>
     task.title.toLowerCase().includes(search.toLowerCase()),
   );
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+
+    if (!over) return;
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === active.id) {
+        return {
+          ...task,
+          status: over.id,
+        };
+      }
+
+      return task;
+    });
+
+    setTasks(updatedTasks);
+  };
 
   return (
     <section className="px-5 py-6 sm:px-8">
@@ -65,13 +84,15 @@ const Board = ({ search, setSearch }) => {
         </div>
       </div>
 
-      <Column
-        // for tasks
-        tasks={searchTasks}
-        setTasks={setTasks}
-        setIsModalOpen={setIsModalOpen}
-        setIsEditing={setIsEditing}
-      />
+      <DndContext onDragEnd={handleDragEnd}>
+        <Column
+          // for tasks
+          tasks={searchTasks}
+          setTasks={setTasks}
+          setIsModalOpen={setIsModalOpen}
+          setIsEditing={setIsEditing}
+        />
+      </DndContext>
       {isModalOpen && (
         // for editing and for tasks
         <AddTaskModal
